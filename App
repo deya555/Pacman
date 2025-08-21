@@ -1,0 +1,17 @@
+import javax.swing.*;
+
+public class App {
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Pac-Man");
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setSize(620, 720); // Adjust based on your game size
+            frame.setLocationRelativeTo(null);
+            frame.setResizable(false);
+
+            HomePanel home = new HomePanel(frame);
+            frame.setContentPane(home);
+            frame.setVisible(true);
+        });
+    }
+}
