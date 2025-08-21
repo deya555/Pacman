@@ -1,0 +1,33 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+
+public class HomePanel extends JPanel {
+    public HomePanel(JFrame frame) {
+        setLayout(new BorderLayout());
+
+        JLabel title = new JLabel("PAC-MAN", SwingConstants.CENTER);
+        title.setFont(new Font("Arial", Font.BOLD, 48));
+        title.setForeground(Color.YELLOW);
+
+        JButton startButton = new JButton("Start Game");
+        startButton.setFont(new Font("Arial", Font.BOLD, 24));
+        startButton.setBackground(Color.BLACK);
+        startButton.setForeground(Color.GREEN);
+        startButton.setFocusPainted(false);
+        startButton.addActionListener((ActionEvent e) -> {
+            PacMan gamePanel = new PacMan();
+            frame.setContentPane(gamePanel);
+            frame.validate();
+            gamePanel.requestFocusInWindow();
+        });
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.BLACK);
+        buttonPanel.add(startButton);
+
+        setBackground(Color.BLACK);
+        add(title, BorderLayout.CENTER);
+        add(buttonPanel, BorderLayout.SOUTH);
+    }
+}
